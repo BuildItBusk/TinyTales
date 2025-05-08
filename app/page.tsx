@@ -1,5 +1,6 @@
 import StartButton from './components/StartButton';
 import DecorativeBackground from './components/DecorativeBackground';
+import Title from './components/Title';
 
 export default function Home() {
   return (
@@ -14,9 +15,8 @@ export default function Home() {
         dark:from-indigo-950
         dark:via-purple-900
         dark:to-pink-950
-      "
-    >
-      
+      ">
+
       <DecorativeBackground />
 
       <main
@@ -32,88 +32,58 @@ export default function Home() {
         "
       >
         <div className="max-w-2xl w-full space-y-12 text-center">
-          {/* Title section */}
-          <div className="space-y-4">
-            <h1
+          <Title text="Små fortællinger" />
+        </div>
+
+        {/* Content card */}
+        <div
+          className="
+            backdrop-blur-sm
+            bg-white/70
+            dark:bg-gray-900/70
+            rounded-3xl
+            p-8
+            shadow-xl
+            border
+            border-purple-100
+            dark:border-purple-800
+          "
+        >
+          <div className="space-y-6">
+            <p
               className="
-                text-5xl
-                sm:text-6xl
-                font-bold
-                bg-gradient-to-r
-                from-purple-600
-                to-pink-600
-                dark:from-purple-400
-                dark:to-pink-400
-                bg-clip-text
-                text-transparent
-                leading-tight
+                text-2xl
+                sm:text-3xl
+                font-medium
+                text-purple-800
+                dark:text-purple-200
               "
             >
-              Små fortællinger
-            </h1>
-            <div
+              Velkommen til en magisk verden af historier!
+            </p>
+            <p
               className="
-                h-1
-                w-24
-                mx-auto
-                bg-gradient-to-r
-                from-purple-400
-                to-pink-400
-                rounded-full
+                text-lg
+                sm:text-xl
+                text-purple-700
+                dark:text-purple-300
               "
-            ></div>
+            >
+              Her kan du skabe din egen unikke godnat historie ved at vælge mellem forskellige muligheder.
+              Lad fantasien flyde og skab et eventyr, der er helt specielt for dig.
+            </p>
           </div>
+        </div>
 
-          {/* Content card */}
-          <div
-            className="
-              backdrop-blur-sm
-              bg-white/70
-              dark:bg-gray-900/70
-              rounded-3xl
-              p-8
-              shadow-xl
-              border
-              border-purple-100
-              dark:border-purple-800
-            "
-          >
-            <div className="space-y-6">
-              <p
-                className="
-                  text-2xl
-                  sm:text-3xl
-                  font-medium
-                  text-purple-800
-                  dark:text-purple-200
-                "
-              >
-                Velkommen til en magisk verden af historier!
-              </p>
-              <p
-                className="
-                  text-lg
-                  sm:text-xl
-                  text-purple-700
-                  dark:text-purple-300
-                "
-              >
-                Her kan du skabe din egen unikke godnat historie ved at vælge mellem forskellige muligheder.
-                Lad fantasien flyde og skab et eventyr, der er helt specielt for dig.
-              </p>
-            </div>
-          </div>
-
-          {/* Button container */}
-          <div
-            className="
-              hover:scale-105
-              transition-transform
-              duration-300
-            "
-          >
-            <StartButton />
-          </div>
+        {/* Button container */}
+        <div
+          className="
+            hover:scale-105
+            transition-transform
+            duration-300
+          "
+        >
+          <StartButton />
         </div>
       </main>
     </div>
