@@ -3,22 +3,11 @@ import DecorativeBackground from './components/DecorativeBackground';
 import Title from './components/Title';
 import WelcomeCard from './components/WelcomeCard';
 import ContentLayout from './components/ContentLayout';
+import PageLayout from './components/PageLayout';
 
 export default function Home() {
   return (
-    <main
-      className="
-        relative
-        min-h-screen
-        bg-gradient-to-br
-        from-indigo-100
-        via-purple-50
-        to-pink-100
-        dark:from-indigo-950
-        dark:via-purple-900
-        dark:to-pink-950
-      ">
-        
+    <PageLayout>
       <DecorativeBackground />
 
       <ContentLayout>
@@ -31,6 +20,6 @@ export default function Home() {
 
         <StartButton />
       </ContentLayout>
-    </main>
+    </PageLayout>
   );
 }

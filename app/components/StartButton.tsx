@@ -1,8 +1,11 @@
 'use client';
 
 import { PlayIcon } from '@heroicons/react/24/solid';
+import { useRouter } from 'next/navigation';
 
 export default function StartButton() {
+  const router = useRouter();
+
   return (
     <div className="hover:scale-105 transition-transform duration-300">
       <button
@@ -18,10 +21,7 @@ export default function StartButton() {
           active:scale-95 active:opacity-90
           transition-transform
         "
-        onClick={() => {
-          // We'll implement navigation to the story builder in the next step
-          console.log('Start story building');
-        }}
+        onClick={() => router.push('/characters')}
       >
         <span className="flex items-center justify-center bg-white/20 rounded-full p-2">
           <PlayIcon className="h-6 w-6 text-white" />

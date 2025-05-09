@@ -14,7 +14,7 @@ export default function ContentLayout({ children }: ContentLayoutProps) {
         justify-center
         p-4
         sm:p-8
-        space-y-12
+        space-y-8
       "
     >
       {children}
