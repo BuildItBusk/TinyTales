@@ -1,0 +1,32 @@
+@baseUrl = http://localhost:5299
+@contentType = application/json
+
+### Health Check
+GET {{baseUrl}}/health
+Accept: {{contentType}}
+
+### Get All Stories
+GET {{baseUrl}}/api/stories
+Accept: {{contentType}}
+
+### Create a New Story
+POST {{baseUrl}}/api/stories
+Content-Type: {{contentType}}
+
+{
+    "title": "My First Tiny Tale",
+    "content": "Once upon a time, in a world of code and creativity..."
+}
+
+### Create Another Story
+POST {{baseUrl}}/api/stories
+Content-Type: {{contentType}}
+
+{
+    "title": "The Adventure Begins",
+    "content": "In a small town, a developer discovered the power of minimal APIs..."
+}
+
+### Get Story by ID
+GET {{baseUrl}}/api/stories/00000000-0000-0000-0000-000000000000
+Accept: {{contentType}} 

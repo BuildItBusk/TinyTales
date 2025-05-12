@@ -11,7 +11,9 @@ my-story-app/
 │   ├── public/     # Static assets
 │   └── ...         # Configuration files
 ├── backend/        # C# Minimal API (ASP.NET) backend
-│   └── ...         # Backend code and configuration
+│   ├── Endpoints/  # FastEndpoints API endpoints
+│   ├── Models/     # Domain models
+│   └── ...         # Configuration files
 ├── shared/         # Shared DTOs, models, and configuration
 │   └── ...         # Shared code between frontend and backend
 ├── .gitignore
@@ -39,7 +41,29 @@ my-story-app/
 
 ### Backend Development
 
-*Coming soon*
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+
+2. Restore dependencies:
+   ```bash
+   dotnet restore
+   ```
+
+3. Start the development server:
+   ```bash
+   dotnet run
+   ```
+
+The API will be available at `http://localhost:5299`. Available endpoints:
+
+- `GET /health` - Health check endpoint
+- `GET /api/stories` - Get all stories
+- `POST /api/stories` - Create a new story
+- `GET /api/stories/{id}` - Get a story by ID
+
+You can test the API using the included HTTP files in the `backend/http` directory or by visiting the Swagger documentation at `http://localhost:5299/swagger` when running in development mode.
 
 ## License
 
