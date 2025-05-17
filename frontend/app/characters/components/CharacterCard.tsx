@@ -1,16 +1,17 @@
 'use client';
 
 type CharacterCardProps = {
+  id: string;
   name: string;
   description: string;
   emoji: string;
-  onSelect: (name: string) => void;
+  onSelect: (id: string) => void;
 };
 
-export default function CharacterCard({ name, description, emoji, onSelect }: CharacterCardProps) {
+export default function CharacterCard({ id, name, description, emoji, onSelect }: CharacterCardProps) {
   return (
     <button
-      onClick={() => onSelect(name)}
+      onClick={() => onSelect(id)}
       className="
         flex items-start gap-4
         p-6

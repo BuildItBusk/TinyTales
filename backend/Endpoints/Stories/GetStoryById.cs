@@ -1,7 +1,6 @@
 using FastEndpoints;
-using TinyTales.Models;
 
-namespace TinyTales.Endpoints.Stories;
+namespace backend.Endpoints.Stories;
 
 public class GetStoryById : EndpointWithoutRequest<Story>
 {

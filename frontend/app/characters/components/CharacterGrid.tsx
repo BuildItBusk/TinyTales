@@ -3,6 +3,7 @@
 import CharacterCard from './CharacterCard';
 
 type Character = {
+  id: string;
   name: string;
   description: string;
   emoji: string;
@@ -10,15 +11,15 @@ type Character = {
 
 type CharacterGridProps = {
   characters: Character[];
-  onSelect: (name: string) => void;
+  onSelect: (id: string) => void;
 };
 
 export default function CharacterGrid({ characters, onSelect }: CharacterGridProps) {
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-6 max-w-2xl mx-auto w-full">
       {characters.map((character) => (
         <CharacterCard
-          key={character.name}
+          key={character.id}
           {...character}
           onSelect={onSelect}
         />

@@ -1,4 +1,4 @@
-namespace TinyTales.Models;
+namespace backend.Endpoints.Stories;
 
 public record Story
 {

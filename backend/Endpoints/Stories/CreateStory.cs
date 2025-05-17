@@ -1,7 +1,7 @@
 using FastEndpoints;
-using TinyTales.Models;
+using TinyTales.Endpoints.Stories;
 
-namespace TinyTales.Endpoints.Stories;
+namespace backend.Endpoints.Stories;
 
 public class CreateStoryRequest
 {

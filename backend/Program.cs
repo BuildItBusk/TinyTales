@@ -1,4 +1,5 @@
 using FastEndpoints;
+using backend.Endpoints.Characters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,12 +9,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks();
 
-// Configure CORS
+// Add CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:5173") // Vite's default port
+        policy.WithOrigins("http://localhost:3000") // Frontend URL
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -28,7 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowFrontend");
+// Use CORS
+app.UseCors();
 
 // Use FastEndpoints
 app.UseFastEndpoints();
@@ -37,12 +39,3 @@ app.UseFastEndpoints();
 app.MapHealthChecks("/health");
 
 app.Run();
-
-// Basic story model
-public record Story
-{
-    public Guid Id { get; init; } = Guid.NewGuid();
-    public string Title { get; init; } = string.Empty;
-    public string Content { get; init; } = string.Empty;
-    public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
-}

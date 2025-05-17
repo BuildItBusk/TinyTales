@@ -29,4 +29,8 @@ Content-Type: {{contentType}}
 
 ### Get Story by ID
 GET {{baseUrl}}/api/stories/00000000-0000-0000-0000-000000000000
-Accept: {{contentType}} 
+Accept: {{contentType}}
+
+### Get all characters
+GET {{baseUrl}}/api/characters
+Accept: application/json 
