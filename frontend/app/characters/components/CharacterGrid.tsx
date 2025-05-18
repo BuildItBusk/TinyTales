@@ -1,13 +1,7 @@
 'use client';
 
 import CharacterCard from './CharacterCard';
-
-type Character = {
-  id: string;
-  name: string;
-  description: string;
-  emoji: string;
-};
+import { Character } from '../../types/Character';
 
 type CharacterGridProps = {
   characters: Character[];

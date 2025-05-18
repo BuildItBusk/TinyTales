@@ -1,10 +1,8 @@
 'use client';
 
-type CharacterCardProps = {
-  id: string;
-  name: string;
-  description: string;
-  emoji: string;
+import { Character } from '../../types/Character';
+
+type CharacterCardProps = Character & {
   onSelect: (id: string) => void;
 };
 

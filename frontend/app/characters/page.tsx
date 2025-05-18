@@ -7,13 +7,8 @@ import CharacterSelectionIntro from './components/CharacterSelectionIntro';
 import CharacterGrid from './components/CharacterGrid';
 import PageLayout from '../components/PageLayout';
 import BackButton from '../components/BackButton';
+import { Character } from '../types/Character';
 
-type Character = {
-  id: string;
-  name: string;
-  description: string;
-  imageUrl: string;
-};
 
 export default function CharacterSelection() {
   const [characters, setCharacters] = useState<Character[]>([]);
