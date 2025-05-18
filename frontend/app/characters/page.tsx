@@ -9,16 +9,17 @@ import PageLayout from '../components/PageLayout';
 import BackButton from '../components/BackButton';
 import { Character } from '../types/Character';
 
-
 export default function CharacterSelection() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await fetch('http://localhost:5299/api/characters');
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/characters`);
         if (!response.ok) {
           throw new Error('Kunne ikke hente karakterer');
         }
