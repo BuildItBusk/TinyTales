@@ -1,6 +1,4 @@
 using FastEndpoints;
-using TinyTales.Endpoints.Stories;
-
 namespace backend.Endpoints.Stories;
 
 public class CreateStoryRequest
@@ -11,6 +9,13 @@ public class CreateStoryRequest
 
 public class CreateStory : Endpoint<CreateStoryRequest, Story>
 {
+    private readonly StoryStorageService _storageService;
+
+    public CreateStory(StoryStorageService storageService)
+    {
+        _storageService = storageService;
+    }
+
     public override void Configure()
     {
         Post("/api/stories");
@@ -25,7 +30,7 @@ public class CreateStory : Endpoint<CreateStoryRequest, Story>
             Content = req.Content
         };
 
-        // TODO: Save story to database
-        await SendCreatedAtAsync<GetStoryById>($"/api/stories/{story.Id}", story, cancellation: ct);
+        var createdStory = await _storageService.CreateStoryAsync(story);
+        await SendCreatedAtAsync<GetStoryById>($"/api/stories/{createdStory.Id}", createdStory, cancellation: ct);
     }
 } 

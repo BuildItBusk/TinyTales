@@ -2,6 +2,7 @@ using FastEndpoints;
 using backend.Endpoints.Characters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using backend.Endpoints.Stories;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -10,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddSwaggerGen();
     builder.Services.AddHealthChecks();
     builder.Services.AddCors(options => ConfigureCors(options, builder.Configuration));
+    
+    // Register storage service
+    builder.Services.AddSingleton<StoryStorageService>();
 }
 
 var app = builder.Build();

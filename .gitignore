@@ -147,3 +147,9 @@ artifacts/
 # Local development settings
 appsettings.Development.json
 appsettings.Local.json
+
+# Azurite local storage files
+__azurite*
+__blobstorage__
+__queuestorage__
+__tablestorage__
