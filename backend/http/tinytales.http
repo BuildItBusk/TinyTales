@@ -10,22 +10,13 @@ GET {{baseUrl}}/api/stories
 Accept: {{contentType}}
 
 ### Create a New Story
-POST {{baseUrl}}/api/stories
-Content-Type: {{contentType}}
+POST {{baseUrl}}/api/stories/generate
+Content-Type: application/json
 
 {
-    "title": "My First Tiny Tale",
-    "content": "Once upon a time, in a world of code and creativity..."
-}
-
-### Create Another Story
-POST {{baseUrl}}/api/stories
-Content-Type: {{contentType}}
-
-{
-    "title": "The Adventure Begins",
-    "content": "In a small town, a developer discovered the power of minimal APIs..."
-}
+    "characterName": "Isbjørnen Theo",
+    "plotId": "lost-treasure"
+} 
 
 ### Get Story by ID
 GET {{baseUrl}}/api/stories/00000000-0000-0000-0000-000000000000

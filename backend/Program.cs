@@ -14,6 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
     
     // Register storage service
     builder.Services.AddSingleton<StoryStorageService>();
+    builder.Services.AddHttpClient();
+    builder.Services.Configure<OpenAiOptions>(builder.Configuration.GetSection(OpenAiOptions.SectionName));
+    builder.Services.AddScoped<StoryGenerationService>();
 }
 
 var app = builder.Build();
