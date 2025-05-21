@@ -39,10 +39,6 @@ export default function PlotSelectionClient() {
     fetchPlots();
   }, [characterName, NEXT_PUBLIC_API_URL]);
 
-  const handlePlotSelect = (plotId: string) => {
-    console.log(`Selected plot: ${plotId}`);
-  };
-
   if (loading) {
     return <div className="text-center">Indlæser historier...</div>;
   }
@@ -51,10 +47,14 @@ export default function PlotSelectionClient() {
     return <div className="text-center text-red-500">{error}</div>;
   }
 
+  if (!characterName) {
+    return <div className="text-center text-red-500">Ingen karakter valgt</div>;
+  }
+
   return (
     <PlotGrid
       plots={plots}
-      onSelect={handlePlotSelect}
+      characterName={characterName}
     />
   );
 } 

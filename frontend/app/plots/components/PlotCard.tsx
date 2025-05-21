@@ -1,15 +1,22 @@
 'use client';
 
 import { Plot } from '../../types/Plot';
+import { useRouter } from 'next/navigation';
 
 type PlotCardProps = Plot & {
-  onSelect: (id: string) => void;
+  characterName: string;
 };
 
-export default function PlotCard({ id, title, description, emoji, onSelect }: PlotCardProps) {
+export default function PlotCard({ id, title, description, emoji, characterName }: PlotCardProps) {
+  const router = useRouter();
+
+  const handleSelect = () => {
+    router.push(`/story?characterName=${encodeURIComponent(characterName)}&plotId=${encodeURIComponent(id)}`);
+  };
+
   return (
     <button
-      onClick={() => onSelect(id)}
+      onClick={handleSelect}
       className="
         flex items-start gap-4
         p-6

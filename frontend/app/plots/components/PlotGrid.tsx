@@ -5,17 +5,17 @@ import PlotCard from './PlotCard';
 
 interface PlotGridProps {
   plots: Plot[];
-  onSelect: (plotId: string) => void;
+  characterName: string;
 }
 
-const PlotGrid: React.FC<PlotGridProps> = ({ plots, onSelect }) => {
+const PlotGrid: React.FC<PlotGridProps> = ({ plots, characterName }) => {
   return (
     <div className="grid gap-4 max-w-2xl mx-auto w-full">
       {plots.map((plot) => (
         <PlotCard
           key={plot.id}
           {...plot}
-          onSelect={onSelect}
+          characterName={characterName}
         />
       ))}
     </div>
