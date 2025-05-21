@@ -153,3 +153,27 @@ __azurite*
 __blobstorage__
 __queuestorage__
 __tablestorage__
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.cursor/
+
+# Local development
+AzuriteConfig
+*.db
+*.db-shm
+*.db-wal
+
+# OS files
+.DS_Store
+Thumbs.db

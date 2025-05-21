@@ -8,11 +8,13 @@ import CharacterGrid from './components/CharacterGrid';
 import PageLayout from '../components/PageLayout';
 import BackButton from '../components/BackButton';
 import { Character } from '../types/Character';
+import { useRouter } from 'next/navigation';
 
 export default function CharacterSelection() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -36,7 +38,11 @@ export default function CharacterSelection() {
   }, []);
 
   const handleCharacterSelect = (characterId: string) => {
-    console.log(`Selected character: ${characterId}`);
+    const selectedCharacter = characters.find(c => c.id === characterId);
+    if (selectedCharacter) {
+      const encodedName = encodeURIComponent(selectedCharacter.name.trim());
+      router.push(`/plots?characterName=${encodedName}`);
+    }
   };
 
   if (loading) {
